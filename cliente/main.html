@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Tecnología Adapnet</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/scrollbar.css">
+		<link rel="stylesheet" href="css/course.css">
+        <link rel="stylesheet" href="css/spinkit.css">
+        <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
+        <script src="http://adapnettest.cloudapp.net:4000/socket.io/lib/socket.io.js"></script>
+       
+    </head>
+	<body>
+    <!-- Barra de encabezado -->
+    <header>
+    	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="col-sm-3 text-center">
+                <a href="#"><img src="img/logo.png" alt=""></a>
+            </div>
+            <div class="col-sm-6 text-center">
+                <div id="notificaciones" class="btn-group">
+                  <button type="button" class="btn btn-info btn-sm">Pendientes<span class="notification"><b><var id="numPendientes">0</var></b></span></button>
+                  <button type="button" class="btn btn-info btn-sm">Asignación<span class="notification"><b><var id="numAsignacion">0</var></b></span></button>
+                  <button type="button" class="btn btn-info btn-sm">Requisición<span class="notification"><b><var id="numRequisicion">0</var></b></span></button>
+                   <button type="button" class="btn btn-info btn-sm">Documentos<span class="notification"><b><var id="numDocumentos">0</var></b></span></button>
+                </div>
+
+            </div>
+            <div class="col-sm-3 text-right">
+                <div id="profile">
+                    <i class="glyphicon glyphicon-user gray"></i><label class="gray">Usuario</label><br>
+                    <a class="btn btn-danger btn-xs" href="index.html" role="button">Salir</a>
+                       
+                </div>
+                
+            </div>
+
+        	<!-- <div class="text-center">
+            
+                <h3>Diamond</h3>
+            </div> -->
+        </nav>
+    </header>
+    <!-- Barra de encabezado -->
+
+    <!-- contenido del sitio -->
+    <div class="row contenido">
+        <div class="col-sm-2 col-md-2">
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-folder-close">
+                            </span>Órdenes</a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        <a id="aOrder" >Nueva orden</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a id="aOrders">Asignanción</a>
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td>
+                                        <a id="aOrders">Requisición</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-file">
+                            </span>Documentos</a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        <a id="aUpload">Subir Archivo</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="#documents">Monitoreo</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="glyphicon glyphicon-stats">
+                            </span>Reportes</a>
+                                
+                            
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        <a id="aAdmin">Administración</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-10 col-md-10">
+        	<div class="offer offer-default">
+				<div class="offer-content">
+                <!-- Carga de módulos con Backbone.js -->
+                    <div id="page">
+                        <div class="main text-center">
+
+                            <h3>Demostración de tecnología Adapnet</h3>
+                            <p>
+                                Seleccione un elemento del menú para continuar.
+                            </p>
+                        </div>
+
+
+                    </div>
+                <!-- Carga de módulos con Backbone.js-->
+				</div>
+			</div>
+        </div>
+    </div>
+    <nav id="footerAdapnet" class="navbar navbar-default navbar-fixed-bottom text-center" role="navigation">
+        <h4>Adapnet Solutions<small> &bull; Aplicación web para fines demostrativos</small></h4>
+        
+    </nav>
+    <!-- Archivos de javascript -->
+
+
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
+    <script src="js/order/order.js"></script>
+    <script src="js/order/orders.js"></script>
+    <script src="js/documents/upload.js"></script>
+    <script src="js/reports/admin.js"></script>
+    <script src="js/main.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,5 @@
+<ul>
+  <% _.each(orders, function(order){ %>
+   <li><a href='<%= order.get("url") %>'><%= order.get("title") %></a></li> 
+  <% }); %>
+</ul>

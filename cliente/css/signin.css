@@ -1,0 +1,91 @@
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #ecf0f1;
+  font-family: "Segoe UI";
+  overflow-x: hidden;
+}
+.count{
+  padding: 10px 10px !important;
+  font-style: italic !important;
+
+}
+
+html{
+   overflow-x: none !important;
+}
+.form-signin {
+  background-color: #F9FAFA;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  box-shadow: 2px 2px 10px #ccc;
+  margin: 0 5px;
+  /* max-width: 50%; */
+  padding: 15px;
+  
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  font-family: "Segoe UI";
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.form-sign{
+  margin: 10px 20px;
+}
+.up{
+  margin: 5px 0px;
+}
+h1,h4{
+  font-family: "Segoe UI" !important;
+  font-weight: lighter;
+  font-style: normal;
+  font-size: 16px;
+}
+
+.others{
+  border-left: 1px solid #ccc;
+}
+.social{
+  padding: 4px;
+}
+.w-social{
+  width: 100% !important;
+}
+.row{
+   overflow-x: none !important;
+}
+@media (max-width: 780px) {
+  .others{
+      border-left: 0px !important;
+      border-top: 1px solid #ccc !important;
+      margin: 0 5px !important ;
+  }
+  .form-signin{
+      margin: 0 10px;
+  }
+}

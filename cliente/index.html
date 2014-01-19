@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Adapnet Solutions</title>
+    <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+
+
+    <!-- Custom styles for this template -->
+    <link href="css/signin.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  <div class="row">
+    <div class="text-center">
+     <!--  <h1>Skirion LAB</h1> -->
+      
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-md-3">
+        
+      </div>
+      <div class="col-md-6">
+          <form class="form-signin" action="main.html" method="post" role="form">
+              <div class="row">
+                  <div class="col-sm-6">
+                      <h4 class="form-signin-heading">Iniciar Sesión con:</h4>
+                      <div class="social">
+                        <a href="" class="btn btn-primary w-social">
+                          <i class="fa fa-facebook-square"></i> Facebook
+                        </a>   
+                      </div>
+                      <div class="social">
+                        <a href="" class="btn btn-info w-social">
+                          <i class="fa fa-twitter"></i> Twitter
+                        </a> 
+                      </div>
+                      <div class="social">
+                        <a href="" class="btn btn-danger w-social">
+                          <i class="fa fa-google-plus-square"></i> Google Plus
+                        </a> 
+                      </div>
+                  </div>
+                  <div class="col-sm-6 others">
+                    <h4 class="form-signin-heading">Iniciar Sesión:</h4>
+                    <input type="text" class="form-control" placeholder="Usuario" required autofocus>
+                    <input type="password" class="form-control" placeholder="Contraseña" required>
+                    
+                      <label class="checkbox">
+                        <input type="checkbox" value="remember-me"> Recordar
+                      </label>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
+                  </div>
+              </div>
+              
+          </form>
+          <div class="count text-right">
+            <a href="#signup" id="signup">Crear una cuenta</a>
+          </div>
+          
+        
+      </div>
+      <div class="col-md-3">
+        
+      </div>
+    </div>
+
+    <!-- Modal -->
+<div class="modal fade" id="modalSignUP" tabindex="-1" role="dialog" aria-labelledby="modalSignUPLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="modalSignUPLabel">Regístrate en Skirion LAB </h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <form class="form-sign" role="form">
+              <div class="row">
+                  <div class="col-sm-6">
+                      <h4 class="form-signin-heading">Registrate con ...</h4>
+                      <div class="social">
+                        <a href="" class="btn btn-default w-social">
+                          <i class="fa fa-facebook-square"></i> Facebook
+                        </a>   
+                      </div>
+                      <div class="social">
+                        <a href="" class="btn btn-default w-social">
+                          <i class="fa fa-twitter"></i> Twitter
+                        </a> 
+                      </div>
+                      <div class="social">
+                        <a href="" class="btn btn-default w-social">
+                          <i class="fa fa-google-plus-square"></i> Google Plus
+                        </a> 
+                      </div>
+                  </div>
+                  <div class="col-sm-6 others">
+                    <h4 class="form-signin-heading">O ingresa con tu correo electrónico</h4>
+                    <input type="text" class="form-control up" placeholder="Correo electrónico" required autofocus>
+                    <input type="text" class="form-control up" id='username' placeholder="Nombre de usuario" required autofocus>
+                    <input type="password" class="form-control up" placeholder="Contraseña" required>
+                    <input type="password" class="form-control up" placeholder="Confirmar contraseña" required>
+                    
+                      <!-- <label class="checkbox">
+                        <input type="checkbox" value="remember-me"> recordar
+                      </label> -->
+                    <button class="btn btn-primary" id='ingresar' type="submit">Ingsar</button>
+                  </div>
+                  <button type="button" class="btn btn-danger">Ingresar</button>
+              </div>
+              
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+        <!-- <button type="button" class="btn btn-primary">Iniciar</button> -->
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+  <script src="js/login.js"></script>
+
+  </body>
+</html>
