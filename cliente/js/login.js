@@ -1,10 +1,8 @@
-window.userName = '';
 
 
 $( document ).ready(function() {
 	$('#btnLogin').click(function(event) {
-		userName = $('#txtUsername').val();
-		//$("#userName").text(window.numPendientes);
+	window.userName = $('#txtUsername').val();
+		$("#user").text(window.numPendientes);
 	});
-   
-});
+ });
