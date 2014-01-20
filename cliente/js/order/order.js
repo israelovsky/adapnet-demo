@@ -49,7 +49,7 @@ var template='<div class="row"> \
 		    	<form role="form">\
 				  <div class="form-group">\
 				   <label for="txtNombre">Cliente:</label> \
-				    <input type="email" class="form-control" id="txtNombre" placeholder="Ingresa tu nombre completo"> \
+				    <input type="email" class="form-control" id="txtNombre" placeholder="Nombre completo"> \
 				  </div> \
 				  <div class="form-group"> \
 				    <label for="txtEmail">Correo electrónico:</label> \
@@ -59,7 +59,7 @@ var template='<div class="row"> \
 				    <label for="txtArticulo">Artículo:</label> \
 				       	<select id="txtArticulo" class="form-control"> \
 						  <option value="1">Pantalla LCD</option> \
-						  <option value="2">Telefonía Móvil</option> \
+						  <option value="2">Telefonia Movil</option> \
 						  <option value="3">Tablets</option> \
 						</select> \
 				  </div> \
