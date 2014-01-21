@@ -14,6 +14,7 @@
 .notification{-webkit-border-radius:19px;-moz-border-radius:19px;border-radius:19px;background-color:#fff;bottom:20px;border:solid 1px #adadad;color:#333;float:right;left:-5%;padding:2px 8px;position:relative;}
 .notification:hover{background:#f8f8f8}
 #notificaciones{margin-top:10px}
+#PanelPaqueteria{margin:10px 0;padding:10px}
 .panel-body{padding:0}
 .panel-buttons{padding:10px}
 .panel-body table tr td{padding-left:15px}
