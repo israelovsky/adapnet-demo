@@ -1,5 +1,6 @@
 var contenedor=$('#page');
-
+var contPaqueteria=0;
+var rowActual=0;
 
 function findAllOrders() {
 	$.ajax({
@@ -16,9 +17,9 @@ function findAllOrders() {
 function renderTable(data){
 	var orders = data == null ? [] : (data.order instanceof Array ? data.order : [data.order]);
 	$('#bodyOrders').html("");
+	$("#numPendientes").html(orders.length);
 	$.each(orders, function(index, order) {
-		//$('#bodyOrders').append('<tr><td>'+order.id_order+'</td><td>'+order.name+'</td><td>'+order.email+'</td><td>'+order.observations+'</td><td>'+order.description+'</td><td>'+order.datetime+'</td><td><a class="btn btn-default"><span class="glyphicon glyphicon-check"></span></a></td></tr>');
-		$('#bodyOrders').append('<tr><td>'+order.id_order+'</td><td>'+order.name+'</td><td>'+order.email+'</td><td>'+order.observations+'</td><td>'+order.description+'</td><td>'+order.datetime+'</td><td><button type="button" class="btn btn-success btn-xs asignar"><span class="glyphicon glyphicon-check"></span>Asignar</button></td></tr>');
+		$('#bodyOrders').append('<tr id="row-'+order.id_order+'"><td>'+order.id_order+'</td><td>'+order.name+'</td><td>'+order.email+'</td><td>'+order.observations+'</td><td>'+order.description+'</td><td>'+order.datetime+'</td><td><button type="button" data-id="'+order.id_order+'" class="btn btn-success btn-xs asignar"><span class="glyphicon glyphicon-check"></span>Asignar</button></td></tr>');
 
 		
 	});
@@ -32,33 +33,46 @@ var templateTable='<!-- Modal --> \
 			        <h4 class="modal-title" id="modalRevisionLabel">Asignación de la orden</h4> \
 			      </div> \
 			      <div id="modalRevisionBody" class="modal-body"> \
-			        <div class="form-inline" role="form"> \
-					  <div class="form-group"> \
-					    <label><b>Centro de servicio</b></label> \
-					    <select class="form-control"> \
-					      <option>Regional</option> \
-					      <option>Local</option> \
-					    </select> \
-					  </div> \
-					</div> \
-					<div id="PanelPaqueteria" class="panel panel-default"> \
-					  <div class="panel-body"> \
-					    <b>Paquetería</b> \
-					    <label class="checkbox"> \
-					      <input type="checkbox" id="inlineCheckbox1" value="option1"> No requiere paquetería \
-					    </label> \
-					    <label class="checkbox"> \
-					      <input type="checkbox" id="inlineCheckbox2" value="option1"> Solicitar Num. de Guía DHL \
-					    </label> \
-					    <label class="checkbox">  \
-					      <input type="checkbox" id="inlineCheckbox3" value="option1"> Solicitar Num. de Guía FEDEX \
-					    </label> \
-					  </div> \
-					</div> \
+				      	<div id="prevForm"> \
+					        <div class="form-inline" role="form"> \
+							  <div class="form-group"> \
+							    <label><b>Centro de servicio</b></label> \
+							    <select id="selectorCentro" class="form-control"> \
+							      <option val="Regional">Regional</option> \
+							      <option val="Local">Local</option> \
+							    </select> \
+							  </div> \
+							</div> \
+							<div id="PanelPaqueteria" class="panel panel-default"> \
+								<div> \
+									<span id="alertaAsignacion"></span> \
+								</div> \
+							  	<div class="panel-body"> \
+							    	<b>Paquetería</b> \
+							   		<label class="checkbox"> \
+							      		<input type="checkbox" id="inlineCheckbox1" value="option1"> No requiere paquetería \
+							    	</label> \
+								    <label class="checkbox"> \
+								      	<input type="checkbox" id="inlineCheckbox2" value="option1"> Solicitar Num. de Guía DHL \
+								    </label> \
+								    <label class="checkbox">  \
+								      	<input type="checkbox" id="inlineCheckbox3" value="option1"> Solicitar Num. de Guía FEDEX \
+								    </label> \
+							  </div> \
+							</div> \
+						</div>\
+						<div id="nextForm"> \
+							<div id="PanelAsignacion" class="panel panel-default"> \
+								<div class="panel-body text-center"> \
+									Asignación: <b><span id="selAsignacion">Regional</span></b>  <br>\
+									Número de guía: <b><span id="numGuia">1231</span></b> \
+								</div> \
+							</div> \
+						</div> \
 			      </div> \
 			      <div class="modal-footer"> \
-			      	<button type="button" class="btn btn-primary">Asignar</button> \
-			        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button> \
+			      	<button type="button" id="btnAsignar" class="btn btn-primary">Asignar</button> \
+			        <button type="button" id="btnCancelar" class="btn btn-danger" data-dismiss="modal">Cancelar</button> \
 			      </div> \
 			    </div><!-- /.modal-content --> \
 			  </div><!-- /.modal-dialog --> \
@@ -86,10 +100,53 @@ $(document).ready(function() {
 		event.preventDefault();
 		contenedor.html(templateTable);
 		findAllOrders();
+
 	});
 	contenedor.on('click', '.asignar', function(event) {
 		event.preventDefault();
 		/* Act on the event */
+		$('#nextForm').hide();
 		$('#modalRevision').modal('show');
+		$('#btnAsignar').show();
+		$('#btnCancelar').html("Cancelar");
+		$('#prevForm').show();
+		$('#nextForm').hide();
+		rowActual=$(this).attr('data-id');
 	});
+	contenedor.on('click', '#btnAsignar', function(event) {
+		if (contPaqueteria===0) {
+			$('#alertaAsignacion').html("<i>*Seleccione una opción</i>");
+		}
+		else{
+			$('#prevForm').hide('fast');
+			$('#nextForm').show('fast');
+			$('#selAsignacion').html($('#selectorCentro').val());
+			var numGuia=Math.floor((Math.random()*10000)+1);
+			$('#numGuia').html(numGuia);
+			$('#btnAsignar').hide();
+			var pendientesActuales=$("#numPendientes").html();
+			pendientesActuales--;
+			var asignacionActuales=$("#numAsignacion").html();
+			asignacionActuales++;
+			$("#numPendientes").text(pendientesActuales);
+			$("#numAsignacion").text(asignacionActuales);
+			$('#btnCancelar').html("Cerrar");
+		}
+		
+	});
+	contenedor.on('click', '#btnCancelar', function(event) {
+		$("#row-"+rowActual+"").hide('slow');
+	});
+	
+	contenedor.on('click', 'input[type=checkbox]', function(event) {
+		if( $(this).is(':checked') ){
+			contPaqueteria++;
+			$('#alertaAsignacion').html(" ");
+		}
+		else{
+			contPaqueteria--;
+		} 
+		
+	});
+	
 });

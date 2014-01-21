@@ -67,6 +67,7 @@ $(document).ready(function() {
 		event.preventDefault();
 		contenedor.html(templateUpload);
 		$('#alertaUpload').hide();
+		alert();
 	});
 	$(document).on('change', '.btn-file :file', function() {
 	        var input = $(this),
