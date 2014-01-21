@@ -51,7 +51,8 @@ var templateUpload='<h3><b>Intercambio de Documentos</b><small> Seleccione el do
 
 $(document).ready(function() {
 	 try{
-      socket = io.connect('http://adapnettest.cloudapp.net:8080');   
+
+	 	//socket = io.connect('http://adapnettest.cloudapp.net:8080');   
         //socket.emit('storeClientInfo', { username: user});        
         
         //Cuando el usuario se desconecta
@@ -67,7 +68,11 @@ $(document).ready(function() {
 		event.preventDefault();
 		contenedor.html(templateUpload);
 		$('#alertaUpload').hide();
+<<<<<<< HEAD
 		alert();
+=======
+		socket = io.connect('http://localhost:8080');
+>>>>>>> 806518611e9e79bbc4aedb2386598ef98df8f0ed
 	});
 	$(document).on('change', '.btn-file :file', function() {
 	        var input = $(this),
