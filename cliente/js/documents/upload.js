@@ -68,11 +68,8 @@ $(document).ready(function() {
 		event.preventDefault();
 		contenedor.html(templateUpload);
 		$('#alertaUpload').hide();
-<<<<<<< HEAD
 		alert();
-=======
 		socket = io.connect('http://localhost:8080');
->>>>>>> 806518611e9e79bbc4aedb2386598ef98df8f0ed
 	});
 	$(document).on('change', '.btn-file :file', function() {
 	        var input = $(this),
