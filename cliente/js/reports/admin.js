@@ -24,7 +24,7 @@ var templateAdmin='<h3>Dashboard <small>Estadística y monitoreo</small></h3> \
                     	<i class="fa fa-comments fa-5x"></i> \
                   	</div> \
                  	<div class="col-xs-6 text-right"> \
-                    	<p class="announcement-heading"></p> \
+                    	<p class="announcement-heading"><span id="ordenesRecibidas"></span></p> \
                     	<p class="announcement-text">órdenes recibidas</p> \
                   	</div> \
                 </div> \
@@ -39,7 +39,7 @@ var templateAdmin='<h3>Dashboard <small>Estadística y monitoreo</small></h3> \
                     	<i class="fa fa-tasks fa-5x"></i> \
                   	</div> \
                  	<div class="col-xs-6 text-right"> \
-                    	<p class="announcement-heading"></p> \
+                    	<p class="announcement-heading"><span id="alertasRecibidas"></span></p> \
                     	<p class="announcement-text">Alertas</p> \
                   	</div> \
                 </div> \
@@ -80,12 +80,32 @@ var templateAdmin='<h3>Dashboard <small>Estadística y monitoreo</small></h3> \
 	</div> \
 </div>';
 
+	
+/*	function countOrdersRecibidas() {
+		$.ajax({
+			type: 'GET',
+			url: rootURL,
+			dataType: "json", // data type of response
+			success: renderPendientesRecibidas
+		});
+	}
+
+	function renderPendientesRecibidas(data){
+		var orders = data == null ? [] : (data.order instanceof Array ? data.order : [data.order]);
+		$("#ordenesRecibidas").html(orders.length);
+	}*/
+
 
 $(document).ready(function() {
 	var socket = io.connect('http://adapnettest.cloudapp.net:4000');
 	$('#aAdmin').click(function(event) {
 		event.preventDefault();
 		contenedor.html(templateAdmin);
+		//countOrdersRecibidas();
+		var asignacionActuales=$("#numPendientes").html();
+		var documentosActuales=$("#numDocumentos").html();
+		$("#alertasRecibidas").html(documentosActuales);
+		$("#ordenesRecibidas").html(asignacionActuales);
 
 		Morris.Donut({
 			element: 'morris-chart-area',
@@ -168,7 +188,7 @@ $(document).ready(function() {
 
 
 
-
+	
 
 });
 
