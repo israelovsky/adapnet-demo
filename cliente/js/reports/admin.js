@@ -25,7 +25,7 @@ var templateAdmin='<h3>Dashboard <small>Estadística y monitoreo</small></h3> \
                   	</div> \
                  	<div class="col-xs-6 text-right"> \
                     	<p class="announcement-heading"><span id="ordenesRecibidas"></span></p> \
-                    	<p class="announcement-text">órdenes recibidas</p> \
+                    	<p class="announcement-text">Órdenes recibidas</p> \
                   	</div> \
                 </div> \
            	</div> \
