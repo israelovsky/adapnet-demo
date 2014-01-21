@@ -50,7 +50,7 @@ var templateTable='<!-- Modal --> \
 							  	<div class="panel-body"> \
 							    	<b>Paquetería</b> \
 							   		<label class="checkbox"> \
-							      		<input type="checkbox" id="inlineCheckbox1" value="option1"> No requiere paquetería \
+							      		<input type="checkbox" id="chkNoPaqueteria" value="option1"> No requiere paquetería \
 							    	</label> \
 								    <label class="checkbox"> \
 								      	<input type="checkbox" id="inlineCheckbox2" value="option1"> Solicitar Num. de Guía DHL \
@@ -118,11 +118,18 @@ $(document).ready(function() {
 			$('#alertaAsignacion').html("<i>*Seleccione una opción</i>");
 		}
 		else{
+			if ($('#chkNoPaqueteria').is(':checked')) {
+				//alert("");
+				$('#numGuia').html("Sin paquetería");
+			}
+			else{
+				var numGuia=Math.floor((Math.random()*10000)+1);
+				$('#numGuia').html(numGuia);
+			}
 			$('#prevForm').hide('fast');
 			$('#nextForm').show('fast');
 			$('#selAsignacion').html($('#selectorCentro').val());
-			var numGuia=Math.floor((Math.random()*10000)+1);
-			$('#numGuia').html(numGuia);
+			
 			$('#btnAsignar').hide();
 			var pendientesActuales=$("#numPendientes").html();
 			pendientesActuales--;
